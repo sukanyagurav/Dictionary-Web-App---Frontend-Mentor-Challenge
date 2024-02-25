@@ -9,18 +9,13 @@
 :root{
 --white: hsl(0, 0%, 100%); 
 --clr-neutral-100: hsl(0, 0%, 96%); 
---clr-neutral-200: hsl(0, 0%, 91%); 
 --light-gray: hsl(0, 0%, 81%); 
 --gray: hsl(0, 0%, 46%); 
---clr-neutral-500: hsl(0, 0%, 23%); 
 --clr-neutral-600: hsl(0, 0%, 18%); 
---clr-neutral-700: hsl(0, 0%, 12%); 
 --clr-neutral-800: hsl(0, 0%, 2%); 
 --dark: hsl(0, 0%, 0%); 
-
 --light-purple: #a445ed; 
 --dark-purple: #8d17e8; 
-
 --red: hsl(0, 100%, 66%); 
 
 }
@@ -177,6 +172,9 @@ button{
     border: none;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
+}
+.pronunciation__Btn:disabled{
+    filter: brightness(0) saturate(100%) invert(94%) sepia(13%) saturate(1%) hue-rotate(318deg) brightness(85%) contrast(96%);
 }
 .pronunciation__Btn:active {
     transform: scale(0.8);

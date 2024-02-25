@@ -21,7 +21,7 @@ async function fetchDicitionary(searchTerm){
     try{
         const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`)
         const data = await res.json()
-        
+        console.log(data[0])
         if(res.status !== 200){
 
             document.querySelector('.welcome-text').innerHTML = `🙁 <p class='no-title'>${data.title}</p> ${data.message}`
@@ -41,6 +41,10 @@ function clearElement(element){
         element.removeChild(element.firstChild)
     }
 }
+function sound(soundName){
+    const audio = new Audio(soundName)
+    audio.play()
+}
 function renderDetails(data){
 
     const container = document.querySelector('.result')  
@@ -53,6 +57,15 @@ function renderDetails(data){
     const pronunciation = templateEle.querySelector('.pronunciation')
     pronunciation.innerHTML = data.phonetic ? data.phonetic : '<span> No phonetic for the word</span>'
 
+    const btn = templateEle.querySelector('.pronunciation__Btn')
+    if(data.phonetics[0 || 1]?.audio){
+        btn.removeAttribute("disabled")
+        btn.addEventListener('click',()=>{
+            sound(data.phonetics[0 || 1 ].audio)
+        })
+    }else{
+        btn.setAttribute('disabled',false)
+    }
     const synonyms = templateEle.querySelector('.synonyms')
     const synonymsList=[]
 
