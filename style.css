@@ -1,0 +1,110 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+--clr-neutral-50: hsl(0, 0%, 100%); 
+--clr-neutral-100: hsl(0, 0%, 96%); 
+--clr-neutral-200: hsl(0, 0%, 91%); 
+--clr-neutral-300: hsl(0, 0%, 81%); 
+--clr-neutral-400: hsl(0, 0%, 46%); 
+--clr-neutral-500: hsl(0, 0%, 23%); 
+--clr-neutral-600: hsl(0, 0%, 18%); 
+--clr-neutral-700: hsl(0, 0%, 12%); 
+--clr-neutral-800: hsl(0, 0%, 2%); 
+--clr-neutral-900: hsl(0, 0%, 0%); 
+
+--light-purple: hsl(274, 82%, 60%); 
+--dark-purple: hsl(274, 82%, 50%); 
+
+--red: hsl(0, 100%, 66%); 
+
+}
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    src: local(Inter), url("./fonts/Inter-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Inconsolata";
+    font-style: normal;
+    src: local(Inter),
+      url("./fonts/Inconsolata-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Lora";
+    font-style: normal;
+
+    src: local(Inter), url("./fonts/Lora-Regular.ttf") format("truetype");
+    font-display: swap;
+  }
+  
+body{
+    max-width: 1000px;
+    width: 100%;
+    margin-inline: auto;
+    padding: 1.5rem;
+    font-family: "Inter";
+}
+header{
+    padding: 3rem 1rem;
+}
+a{
+    text-decoration: none;
+    font-family: inherit;
+}
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+form{
+    position: relative;
+}
+form input{
+    font-family: inherit;
+    padding: 1rem 5rem 1rem 1.3rem;
+    border-radius: 15px;
+    width: 100%;
+    border: none;
+    background-color: var(--clr-neutral-100);
+    font-size: 1.1rem;
+}
+form button{
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+}
+img{
+    display: block;
+}
+.search__result{
+    margin: 2rem 0;
+}
+.search__resultHeader{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.search__resultHeader button{
+    grid-column: 2/3;
+    grid-row: 1 / 3;
+    justify-self: flex-end;
+}
+.pronunciation{
+    color: var(--light-purple);
+    font-size: 1.2rem;
+}
+.search__resultBody{
+    margin: 1rem 0;
+}
+.title{
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+.title::after{
+    position: absolute;
+}
