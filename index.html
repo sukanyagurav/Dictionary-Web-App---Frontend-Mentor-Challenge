@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dictionary Web App - Frontend Mentor Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Inter:slnt,wght@-10..0,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <header>
@@ -12,7 +16,30 @@
             <img src="images/logo.svg" alt="">
         </div>
         <div class="header__right">
-
+            <div class="dropdown">
+                <div class="select">
+                    <span class="selected">
+                         Serif
+                    </span>
+                    <div class="caret"></div>
+                </div>
+                <ul class="font-family">
+                    <li data-family="Inter">Sans-serif</li>
+                    <li data-family="Lora" class="active">Serif</li>
+                    <li data-family="Inconsolata">Monospace</li>
+                </ul>
+            </div>
+                    
+            <div class="toggle-btn">
+               
+                  <input type="checkbox" id="toggle" class="toggle" aria-label="Please select theme">
+                  <label for="toggle" class="toggleLabel" id="toggleLabel" aria-hidden="true">
+                    <div class="ball" ></div>
+                  </label>
+                  <label for="toggle">
+                    <img src="images/icon-moon.svg" alt="">
+                  </label>
+            </div>
         </div>
     </header>
     <main>
@@ -21,22 +48,30 @@
             <button>
                 <img src="images/icon-search.svg" alt="">
             </button>
+            <p class="error" id="empty-field">Oops you didn't enter word yet!</p>
         </form>
+        <div class="result">
+            <p class="welcome-text"><img src="images/logo.svg" alt=""/>Welcome to Dictionary web app – Your Gateway to Words!</p>
+            <div class="loader">
+                <img src="images/Spinner-1s-200px.svg" class="hide" alt="">
+            </div>
+        </div>
+    </main>
+    <template id="template">
         <div class="search__result">
             <div class="search__resultHeader">
-                <h1>Keyboard</h1>
+                <h1 class="word_name">Keyboard</h1>
                 <p class="pronunciation">/ki.bo.d</p>
-                <button>
+                <button class="pronunciation__Btn">
                     <img src="images/icon-play.svg" alt="">
                 </button>
             </div>
             <div class="search__resultBody">
                 <span class="title">noun</span>
                 <section class="search__details">
-                    <h3>Meaning</h3>
-                    <ul>
-                        <li>sdfdsfdsf</li>
-                        <li>dfdsfsdf</li>
+                    <h3 class="noun__meaning"></h3>
+                    <ul class="meanings__list">
+                       
                     </ul>
                     <div class="container">
                         <h4>Synonyms</h4>
@@ -45,24 +80,21 @@
                 </section>
                 <span class="title">verb</span>
                 <section class="search__details">
-                    <h3>Meaning</h3>
-                    <ul>
-                        <li><p class="verb__heading">
-                            TO type on computer board
-                        </p>
-                        <p class="verb__examples">
-                            Keyboarding is the part of this job
-                        </p>
-                    </li>
+                    <h3 class="verb__meaning"></h3>
+                    <ul class="verb__list">
+                
                     </ul>
                 </section>
                 <div class="links">
                     <p>Source</p>
-                    <a href="#none" target="_blank">link <img src="images/icon-new-window.svg" alt=""></a>
+                    <ul class="url__links">
+                        
+                    </ul>
+    
                 </div>
             </div>
         </div>
-    </main>
+    </template>
     <script src="script.js" defer></script>
 </body>
 </html>
