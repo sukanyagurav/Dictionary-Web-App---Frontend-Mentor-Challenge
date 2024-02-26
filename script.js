@@ -58,10 +58,10 @@ function renderDetails(data){
     pronunciation.innerHTML = data.phonetic ? data.phonetic : '<span> No phonetic for the word</span>'
 
     const btn = templateEle.querySelector('.pronunciation__Btn')
-    if(data.phonetics[1 || 0]?.audio){
+    if(data.phonetics[0]?.audio || data.phonetics[1]?.audio){
         btn.removeAttribute("disabled")
         btn.addEventListener('click',()=>{
-            sound(data.phonetics[1 || 0 ].audio)
+            sound(data.phonetics[0]?.audio || data.phonetics[1]?.audio)
         })
     }else{
         btn.setAttribute('disabled',false)
@@ -130,15 +130,15 @@ function createLinks(lists){
 
 // toggle functionality
 const toggleBtn= document.querySelector('#toggle');
-toggleBtn.addEventListener('click',function(){
+toggleBtn.addEventListener('click',changeMode)
+function changeMode(){
     if(document.body.classList.contains('dark')){
-       document.body.classList.remove('dark')
-    }
-    else{
-        
+        document.body.classList.remove('dark')
+     }
+     else{
         document.body.classList.add('dark')
-    }
-})
+     }
+}
 
 // dropdown family
 const dropdown=document.querySelector('.dropdown')
@@ -148,10 +148,16 @@ const menu = dropdown.querySelector('.font-family')
 const options = dropdown.querySelectorAll('.font-family li')
 const selected = dropdown.querySelector('.selected')
 
-select.addEventListener('click',()=>{
+select.addEventListener('click',toggleMenu)
+dropdown.addEventListener('keydown',function (e) {
+    if (e.code === "Enter") {  
+        toggleMenu()
+    }
+})
+function toggleMenu(){
     caret.classList.toggle('caret-rotate')
     menu.classList.toggle('open-menu')
-})
+}
 options.forEach(option=>{
     option.addEventListener('click',()=>{
         selected.innerText = option.innerText
