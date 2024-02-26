@@ -58,10 +58,10 @@ function renderDetails(data){
     pronunciation.innerHTML = data.phonetic ? data.phonetic : '<span> No phonetic for the word</span>'
 
     const btn = templateEle.querySelector('.pronunciation__Btn')
-    if(data.phonetics[0 || 1]?.audio){
+    if(data.phonetics[1 || 0]?.audio){
         btn.removeAttribute("disabled")
         btn.addEventListener('click',()=>{
-            sound(data.phonetics[0 || 1 ].audio)
+            sound(data.phonetics[1 || 0 ].audio)
         })
     }else{
         btn.setAttribute('disabled',false)
